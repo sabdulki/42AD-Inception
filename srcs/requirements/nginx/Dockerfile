@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && \
-    apt-get install -y apt-utils nginx vim curl openssl && \
+    apt-get install -y apt-utils nginx vim curl telnet netcat openssl && \
     rm -rf /var/lib/apt/lists/*
 
 #Creates the folder where SSL cert and key will be stored.
@@ -15,11 +15,11 @@ RUN openssl req -x509 -nodes \
 #store NGINX config files.
 RUN mkdir -p /var/run/nginx 
 
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/default.conf /etc/nginx/conf.d/default.conf
 
 RUN chmod 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
-#EXPOSE 443 ????
+EXPOSE 443
 
 CMD [ "nginx", "-g", "daemon off;" ]
