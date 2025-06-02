@@ -1,14 +1,8 @@
 #!bin/bash
 
-# wait for mysql to start
-# sleep 10
 until mysqladmin ping -h"mariadb" --silent; do
   sleep 1
 done
-# Install Wordpress
-
-echo "DB_NAME=${DB_NAME}, DB_USER=${DB_USER}, DB_USER_PASS=${DB_USER_PASS}, DB_ROOT_PASS=${DB_ROOT_PASS}"
-
 
 if [ ! -f /var/www/html/wp-config.php ]; then
     wp config create --dbname=$DB_NAME --dbuser=$DB_USER \
@@ -42,10 +36,4 @@ echo "✅ WordPress initialized. Starting PHP-FPM... new version!"
 mkdir -p /run/php
 chown www-data:www-data /run/php
 
-if ! /usr/sbin/php-fpm7.3 -F; then
-    echo "php-fpm path: $(which php-fpm)"
-    echo "php-fpm7.3 path: $(which php-fpm7.3)"
-    echo "❌ Failed to run /usr/sbin/php-fpm7.3 -F"
-fi
-# /usr/sbin/php-fpm7.3 -F
-
+exec /usr/sbin/php-fpm7.3 -F

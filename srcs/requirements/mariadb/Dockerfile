@@ -1,10 +1,12 @@
 FROM debian:buster
 
+ARG DB_NAME DB_USER DB_USER_PASS DB_ROOT_PASS
+
 #TEMPORARY before initializing docker-compose file
-ENV DB_NAME=wp_db \
-    DB_ROOT_PASS=db_root_pass \
-    DB_USER=wp_user \
-    DB_USER_PASS=wp_user_pass
+# ENV DB_NAME=wp_db \
+#     DB_ROOT_PASS=db_root_pass \
+#     DB_USER=wp_user \
+#     DB_USER_PASS=wp_user_pass
 
 RUN apt-get update -y && \
     apt upgrade -y && \

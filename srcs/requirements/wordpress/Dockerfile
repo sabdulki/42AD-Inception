@@ -1,5 +1,10 @@
 FROM debian:buster
 
+ARG DB_NAME DB_USER DB_USER_PASS \
+    DOMAIN_NAME BRAND \
+    WORDPRESS_ADMIN WORDPRESS_ADMIN_PASS WORDPRESS_ADMIN_EMAIL \
+    WORDPRESS_USER WORDPRESS_USER_PASS WORDPRESS_USER_EMAIL
+
 #latest version is 8.4
 RUN apt-get update && \
     apt-get install -y apt-utils wget php php-fpm php-phar \
