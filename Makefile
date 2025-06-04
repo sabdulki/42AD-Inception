@@ -1,23 +1,26 @@
+COMPOSE_PROJECT_NAME =
 name = inception
+compose = COMPOSE_PROJECT_NAME=$(COMPOSE_PROJECT_NAME) docker-compose -f ./srcs/docker-compose.yml
+
 all:
 	@printf "Launch configuration ${name}...\n"
-	@docker-compose -f ./srcs/docker-compose.yml  up --build -d
+	@$(compose) up --build -d
 
 build:
 	@printf "Building configuration ${name}...\n"
-	@docker-compose -f ./srcs/docker-compose.yml  build
+	@$(compose) build
 
 up:
 	@printf "Run configuration ${name}...\n"
-	@docker-compose -f ./srcs/docker-compose.yml  up -d
+	@$(compose) up -d
 
 stop:
 	@printf "Stopping configuration ${name}...\n"
-	@docker-compose -f ./srcs/docker-compose.yml  stop
+	@$(compose) stop
 
 clean:
 	@printf "Cleaning configuration ${name}...\n"
-	@docker-compose -f ./srcs/docker-compose.yml  down
+	@$(compose) down
 
 re: clean
 	@printf "Rebuild configuration ${name}...\n"
@@ -25,7 +28,7 @@ re: clean
 
 fclean:
 	@printf "Total clean of all configurations docker\n"
-	@docker-compose -f ./srcs/docker-compose.yml down -v
+	@$(compose) down -v
 	@docker system prune --all --force --volumes
 	@docker network prune --force
 	@docker volume prune --force

@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update && \
     apt-get install -y apt-utils nginx vim curl telnet netcat openssl && \

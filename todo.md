@@ -63,3 +63,36 @@ default.conf лежал в nginx, а должен был в nginx/conf.d/ я п�
 
 
 4) ВСЕ РАБОТАЕТ в startx webserver!!!!!
+
+Preparation! 
+Questions:
+- whats the difference between virtual machine and docker
+- how daemons work and whether it’s a good idea to use them or not.
+- what is pid 1, how it's defined and how to check if the docker uses pid 1
+- what is ssl protocol, what are the stges of handshake? 
+- what is TLSv1.2 and TLSv1.3 protocol
+- how do we configure ssl certificate
+- differnce betweeen localhost and domain name
+
+- what is VM?
+- what is Docker?
+- what are docker image, docker container, docker volumes and docker network
+- what is docker compose?
+
+- what is nginx?
+- what is mariadb
+- what is wordpress?
+
+- why startx only in root?
+- what is startx?
+- what is web browser?
+
+- how to prove that i use ssl/tls certificate?
+
+
+Action needed:
+- delete all debug messages
+- delete all empty folders
+- delete "srcs_" prefix or make sure it's allowed to present
+- add files in secrets folder
+- add todo.md in .gitignor

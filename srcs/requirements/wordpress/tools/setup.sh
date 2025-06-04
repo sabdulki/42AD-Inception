@@ -46,7 +46,7 @@ echo "✅ WordPress initialized. Starting PHP-FPM... new version!"
 mkdir -p /run/php
 chown www-data:www-data /run/php
 
-exec /usr/sbin/php-fpm7.3 -F
+exec /usr/sbin/php-fpm7.4 -F
 
 # echo "Current wp-config content:"
 # cat /var/www/html/wp-config.php

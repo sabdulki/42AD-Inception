@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 ARG DB_NAME DB_USER DB_USER_PASS DB_ROOT_PASS
 

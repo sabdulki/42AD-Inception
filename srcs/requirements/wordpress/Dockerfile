@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 ARG DB_NAME DB_USER DB_USER_PASS \
     DOMAIN_NAME BRAND \
@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install -y apt-utils wget php php-fpm php-phar \
     php-mysql mariadb-client php-zip unzip curl sendmail openssl vim && \
     rm -rf /var/lib/apt/lists/* && \
-    sed -i -e 's/listen =.*/listen = 0.0.0.0:9000/g' /etc/php/7.3/fpm/pool.d/www.conf
+    sed -i -e 's/listen =.*/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 
 WORKDIR /var/www/html
 RUN chown -R www-data:www-data /var/www/html
@@ -21,7 +21,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN wp core download --allow-root
 
 #tmp
-RUN which php-fpm7.3 && php-fpm7.3 -v
+RUN which php-fpm7.4 && php-fpm7.4 -v
 
 RUN mkdir -p /etc/tools
 COPY tools/setup.sh /etc/tools/setup.sh
