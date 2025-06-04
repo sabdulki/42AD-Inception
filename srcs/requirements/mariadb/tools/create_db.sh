@@ -32,6 +32,8 @@ FLUSH PRIVILEGES;
 #Создается временный файл SQL-скрипта, который потом подается на выполнение серверу MariaDB.
 echo "${DB_SETUP}" > /tmp/setup.sql #записывает SQL-команды в файл
 
+cat /tmp/setup.sql
+
 if ! /usr/sbin/mysqld --user=mysql --bootstrap < /tmp/setup.sql; then
   echo "❌ Database initialization failed!"
     #   exit 1
