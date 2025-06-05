@@ -3,6 +3,7 @@ version: "3"
 services:
   nginx:
     container_name: nginx
+    image: nginx
     build:
       context: requirements/nginx
       dockerfile: Dockerfile
@@ -19,6 +20,7 @@ services:
 
   mariadb:
     container_name: mariadb
+    image: mariadb
     build:
       context: requirements/mariadb/
       dockerfile: Dockerfile
@@ -33,6 +35,7 @@ services:
 
   wordpress:
     container_name: wordpress
+    image: wordpress
     build:
       context: requirements/wordpress
       dockerfile: Dockerfile
@@ -49,11 +52,13 @@ services:
 
 volumes:
   mariadb_data:
+    name: mariadb_data
     driver_opts:
       o: bind
       type: none
       device: /home/sabdulki/data/mariadb
   wordpress_data:
+    name: wordpress_data
     driver_opts:
       o: bind
       type: none
@@ -61,4 +66,5 @@ volumes:
 
 networks:
   inception-network:
+    name: inception-network
     driver: bridge

@@ -5,7 +5,6 @@ ARG DB_NAME DB_USER DB_USER_PASS \
     WORDPRESS_ADMIN WORDPRESS_ADMIN_PASS WORDPRESS_ADMIN_EMAIL \
     WORDPRESS_USER WORDPRESS_USER_PASS WORDPRESS_USER_EMAIL
 
-#latest version is 8.4
 RUN apt-get update && \
     apt-get install -y apt-utils wget php php-fpm php-phar \
     php-mysql mariadb-client php-zip unzip curl sendmail openssl vim && \
@@ -19,10 +18,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     mv wp-cli.phar /usr/local/bin/wp
 
 RUN wp core download --allow-root
-
-#tmp
-RUN which php-fpm7.4 && php-fpm7.4 -v
-
 RUN mkdir -p /etc/tools
 COPY tools/setup.sh /etc/tools/setup.sh
 RUN chmod +x /etc/tools/setup.sh

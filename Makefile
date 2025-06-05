@@ -1,6 +1,5 @@
-COMPOSE_PROJECT_NAME =
 name = inception
-compose = COMPOSE_PROJECT_NAME=$(COMPOSE_PROJECT_NAME) docker-compose -f ./srcs/docker-compose.yml
+compose = name=$(name) docker-compose -f ./srcs/docker-compose.yml
 
 all:
 	@printf "Launch configuration ${name}...\n"

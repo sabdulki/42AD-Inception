@@ -2,12 +2,6 @@ FROM debian:bullseye
 
 ARG DB_NAME DB_USER DB_USER_PASS DB_ROOT_PASS
 
-#TEMPORARY before initializing docker-compose file
-# ENV DB_NAME=wp_db \
-#     DB_ROOT_PASS=db_root_pass \
-#     DB_USER=wp_user \
-#     DB_USER_PASS=wp_user_pass
-
 RUN apt-get update -y && \
     apt upgrade -y && \
     apt-get install mariadb-server -y && \
@@ -21,4 +15,3 @@ RUN chmod +x /usr/local/bin/create_db.sh
 EXPOSE 3306
 
 ENTRYPOINT ["/bin/sh", "/usr/local/bin/create_db.sh"]
-CMD ["mysqld_safe"]
