@@ -7,7 +7,7 @@ ARG DB_NAME DB_USER DB_USER_PASS \
 
 RUN apt-get update && \
     apt-get install -y apt-utils wget php php-fpm php-phar \
-    php-mysql mariadb-client php-zip unzip curl sendmail openssl vim && \
+    php-mysql mariadb-client php-zip unzip curl openssl vim && \
     rm -rf /var/lib/apt/lists/* && \
     sed -i -e 's/listen =.*/listen = 0.0.0.0:9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 

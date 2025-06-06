@@ -19,6 +19,9 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
     wp config  set WP_CACHE 'true' --allow-root
 
+    wp option update moderation_notify 0 --allow-root
+    wp option update comments_notify 0 --allow-root
+
     chmod 755 /var/www/html/wp-content
 
     wp theme install twentyfifteen
