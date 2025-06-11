@@ -1,3 +1,10 @@
+11.06
+Improve env template so ir's possible to add server name and
+Change "sabdulki" everywhere to corresponding env variable
+Chnage paths in volumes so other users can also store their data there
+Add info about most used commands to interact with running application
+(docker logs, docker ps -a, docker exec mariadb sh, show databases; etc)
+Will the site work if domain name contains non-existing 42 nickname?
 29.05
 
 как запускать правильно контейнер
