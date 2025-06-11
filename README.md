@@ -1,8 +1,8 @@
 # Inception
 
-> Running web-page via docker compose and dockerized WordPress, MariaDB, and Nginx in Virtual Machine. 
+Running web-page via docker compose and dockerized WordPress, MariaDB, and Nginx in Virtual Machine. 
 
----
+![docker-compose-and-dockers-image](assets/docker-compose.jpeg)
 
 ## Overview
 
